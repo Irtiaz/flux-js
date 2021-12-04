@@ -1,12 +1,14 @@
 const charges = [];
 
+
 function setup() {
 	createCanvas(windowWidth, windowHeight);
-	//createCanvas(400, 400);
 	background(255);
+
+	document.getElementsByTagName('canvas')[0].addEventListener('click', handleMousePressed);
 }
 
-function mousePressed() {
+function handleMousePressed() {
 	if (!outsideScreen(mouseX, mouseY)) {
 		const val = prompt('Enter the value of the charge with polarity (+/-)');
 		if (val !== '' && val != null) {
@@ -21,5 +23,6 @@ function mousePressed() {
 			drawAllFlux();
 			for (let charge of charges) charge.display();
 		}
+
 	}
 }
